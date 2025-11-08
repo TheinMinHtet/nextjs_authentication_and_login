@@ -1,4 +1,4 @@
-This is a comprehensive README for your Next.js Authentication and Login project.
+This is a comprehensive README for your Next.js Authentication and Login project!
 
 ````markdown
 # Next.js Authentication and Login
