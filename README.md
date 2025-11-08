@@ -62,7 +62,7 @@ Create a file named **`.env`** in the root of the project directory and populate
 touch .env
 ```
 
-### **Step 4: Environment Variables (`.env.local` contents)**
+### **Step 4: Environment Variables (`.env` contents)**
 
 Copy the following structure into your newly created `.env` file and replace the placeholder values with your actual secrets and configuration.
 
