@@ -55,42 +55,55 @@ npm install
 
 ### **Step 3: Configure Environment Variables**
 
-Create a file named **`.env.local`** in the root of the project directory and populate it with your specific configuration details.
+Create a file named **`.env`** in the root of the project directory and populate it with your specific configuration details.
 
 ```bash
 # Create the environment file
-touch .env.local
+touch .env
 ```
 
 ### **Step 4: Environment Variables (`.env.local` contents)**
 
-Copy the following structure into your newly created `.env.local` file and replace the placeholder values with your actual secrets and configuration.
+Copy the following structure into your newly created `.env` file and replace the placeholder values with your actual secrets and configuration.
 
 ```bash
-# Application Configuration
+# --- Next.js Application & Authentication Configuration ---
+
+# The base URL of your application (required for NextAuth callbacks)
 NEXTAUTH_URL=http://localhost:3000
-NEXTAUTH_SECRET="A_VERY_LONG_AND_SECURE_SECRET_FOR_NEXTAUTH"
-# Tip: Generate a secure secret using: openssl rand -base64 32
 
-# 1. MongoDB Configuration
-MONGODB_URI="your_mongodb_connection_string"
+# A secure secret used by NextAuth to encrypt tokens and hash cookies.
+# Tip: Generate a secure secret using a tool or command line (e.g., openssl rand -base64 32)
+NEXTAUTH_SECRET=[A_LONG_AND_SECURE_NEXTAUTH_SECRET]
 
-# 2. JWT Configuration (For Email Verification & General Tokens)
-# This is a separate secret used for manual JWT implementation (e.g., email verification token)
-JWT_SECRET="YOUR_CUSTOM_JWT_SECRET_FOR_VERIFICATION"
+# A separate secret specifically for manual JWT creation (e.g., email verification tokens).
+JWT_SECRET=[YOUR_CUSTOM_JWT_SECRET_FOR_VERIFICATION]
 
-# 3. Google OAuth Configuration
-# NEXT_PUBLIC_ is required for Client-Side access (if any)
-NEXT_PUBLIC_GOOGLE_CLIENT_ID="YOUR_GOOGLE_CLIENT_ID"
-GOOGLE_CLIENT_SECRET="YOUR_GOOGLE_CLIENT_SECRET"
+# --- Database Configuration ---
 
-# 4. Email/SMTP Configuration (For Email Verification)
-# Use your service provider's details (e.g., Google, SendGrid, Mailtrap)
-EMAIL_HOST="smtp.example.com"
-EMAIL_PORT=587
-EMAIL_USER="your_email_account@example.com"
-EMAIL_PASS="your_email_password_or_app_password"
-FROM_EMAIL="noreply@yourdomain.com"
+# MongoDB Connection String
+MONGODB_URI=[YOUR_MONGODB_URI]
+
+# --- Google OAuth Configuration ---
+
+# Google Client ID (Publicly visible in your app)
+GOOGLE_CLIENT_ID=[YOUR_GOOGLE_CLIENT_ID]
+
+# Google Client Secret (Keep this private)
+GOOGLE_CLIENT_SECRET=[YOUR_GOOGLE_CLIENT_SECRET]
+
+# --- Email (SMTP) Configuration for Verification ---
+
+# The host and port for your SMTP server
+SMTP_HOST=[YOUR_SMTP_HOST_ADDRESS]
+SMTP_PORT=587
+
+# Your email address and the corresponding App Password
+SMTP_USER=[YOUR_EMAIL_ACCOUNT]
+SMTP_PASS=[YOUR_EMAIL_PASSWORD_OR_APP_PASSWORD]
+
+# The email address that the verification emails will be sent FROM
+FROM_EMAIL=[NOREPLY@YOURDOMAIN.COM]
 ```
 
 ### **Step 5: Run the Development Server**
@@ -112,6 +125,3 @@ npm run dev
 4.  **Logout**: Access the protected routes, then click the Logout button to securely terminate your session.
 
 <!-- end list -->
-
-```
-```
