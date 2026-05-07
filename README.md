@@ -1,6 +1,6 @@
 This is a comprehensive README for your Next.js Authentication and Login project!
 
-````markdown
+
 # Next.js Authentication and Login
 
 This project implements a robust authentication system for a Next.js application. It supports traditional credential-based sign-up/login, Google social authentication, and a secure email verification process using JWT and SMTP, all backed by a MongoDB database.
